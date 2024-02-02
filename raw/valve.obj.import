@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvuhwq8aa464f"
+path="res://.godot/imported/valve.obj-bbaabcc6e40ccfb6938aa6e35b2927f5.mesh"
+
+[deps]
+
+files=["res://.godot/imported/valve.obj-bbaabcc6e40ccfb6938aa6e35b2927f5.mesh"]
+
+source_file="res://raw/valve.obj"
+dest_files=["res://.godot/imported/valve.obj-bbaabcc6e40ccfb6938aa6e35b2927f5.mesh", "res://.godot/imported/valve.obj-bbaabcc6e40ccfb6938aa6e35b2927f5.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

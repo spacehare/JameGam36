@@ -1,0 +1,301 @@
+{
+	"connections": [
+		{
+			"from": "normal_map2",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 4
+		},
+		{
+			"from": "fbm2",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 1
+		},
+		{
+			"from": "blend2",
+			"from_port": 0,
+			"to": "normal_map2",
+			"to_port": 0
+		},
+		{
+			"from": "tones_step",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 0
+		},
+		{
+			"from": "gaussian_blur",
+			"from_port": 0,
+			"to": "tones_step",
+			"to_port": 0
+		},
+		{
+			"from": "voronoi2",
+			"from_port": 0,
+			"to": "gaussian_blur",
+			"to_port": 0
+		},
+		{
+			"from": "voronoi2",
+			"from_port": 2,
+			"to": "fill_to_random_color",
+			"to_port": 0
+		},
+		{
+			"from": "fill_to_random_color",
+			"from_port": 0,
+			"to": "colorize",
+			"to_port": 0
+		},
+		{
+			"from": "colorize",
+			"from_port": 0,
+			"to": "gaussian_blur_2",
+			"to_port": 0
+		},
+		{
+			"from": "gaussian_blur_2",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "322",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_last_target": "Godot/Godot 4 Standard",
+			"export_paths": {
+				"Godot/Godot 4 Standard": "I:/Godot/JameGam36/textures/rock1"
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 293.305542,
+				"y": -5.388889
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 1,
+				"flags_transparent": false,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 1,
+				"size": 6,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "voronoi2",
+			"node_position": {
+				"x": -1096,
+				"y": -50.000031
+			},
+			"parameters": {
+				"intensity": 1.64,
+				"randomness": 1,
+				"scale_x": 4,
+				"scale_y": 4,
+				"stretch_x": 1,
+				"stretch_y": 1
+			},
+			"seed_int": 2016555136,
+			"type": "voronoi2"
+		},
+		{
+			"name": "normal_map2",
+			"node_position": {
+				"x": -135.403564,
+				"y": 153.368164
+			},
+			"parameters": {
+				"buffer": 1,
+				"param2": 0,
+				"size": 7,
+				"strength": 1
+			},
+			"seed_int": 0,
+			"type": "normal_map2"
+		},
+		{
+			"name": "fbm2",
+			"node_position": {
+				"x": -792.767639,
+				"y": 308.825073
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 6,
+				"noise": 1,
+				"offset": 0,
+				"persistence": 0.53,
+				"scale_x": 1,
+				"scale_y": 1
+			},
+			"seed_int": 0,
+			"type": "fbm2"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2",
+			"node_position": {
+				"x": -409.073151,
+				"y": 306.130646
+			},
+			"parameters": {
+				"amount1": 0.42,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "tones_step",
+			"node_position": {
+				"x": -568.41925,
+				"y": 97.338608
+			},
+			"parameters": {
+				"invert": false,
+				"value": 1,
+				"width": 2.68
+			},
+			"seed_int": 0,
+			"type": "tones_step"
+		},
+		{
+			"name": "gaussian_blur",
+			"node_position": {
+				"x": -812.883423,
+				"y": 78.19635
+			},
+			"parameters": {
+				"param0": 9,
+				"param1": 25.4,
+				"param2": 0
+			},
+			"seed_int": 0,
+			"type": "gaussian_blur"
+		},
+		{
+			"name": "fill_to_random_color",
+			"node_position": {
+				"x": -667.946472,
+				"y": -48.852386
+			},
+			"parameters": {
+				"edgecolor": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "fill_to_random_color2"
+		},
+		{
+			"name": "gaussian_blur_2",
+			"node_position": {
+				"x": -69.946419,
+				"y": -26.85239
+			},
+			"parameters": {
+				"param0": 7,
+				"param1": 13.2,
+				"param2": 0
+			},
+			"seed_int": 0,
+			"type": "gaussian_blur"
+		},
+		{
+			"name": "colorize",
+			"node_position": {
+				"x": -376.419098,
+				"y": -54.661415
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 3,
+					"points": [
+						{
+							"a": 1,
+							"b": 1,
+							"g": 1,
+							"pos": 0.151504,
+							"r": 0
+						},
+						{
+							"a": 1,
+							"b": 0,
+							"g": 0,
+							"pos": 0.795444,
+							"r": 1
+						}
+					],
+					"type": "Gradient"
+				}
+			},
+			"seed_int": 0,
+			"type": "colorize"
+		},
+		{
+			"name": "website899",
+			"node_position": {
+				"x": -4829.272949,
+				"y": -1254.887695
+			},
+			"parameters": {
+				"size": 4
+			},
+			"seed": 20109,
+			"type": "website:899"
+		},
+		{
+			"name": "website899_2",
+			"node_position": {
+				"x": -4829.272949,
+				"y": -1254.887695
+			},
+			"parameters": {
+				"size": 4
+			},
+			"seed": 20109,
+			"type": "website:899"
+		},
+		{
+			"name": "website899_3",
+			"node_position": {
+				"x": -4846.272949,
+				"y": -1219.887695
+			},
+			"parameters": {
+				"size": 4
+			},
+			"seed": 20109,
+			"type": "website:899"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}

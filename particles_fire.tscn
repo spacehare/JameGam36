@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://bqyhclfeseo7v"]
+
+[ext_resource type="Material" uid="uid://bbqhvc6vyqtj1" path="res://resources/material_candle_smoke.tres" id="1_5uhe3"]
+
+[sub_resource type="Curve" id="Curve_7h4v4"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.477612, 1), 0.0, 0.0, 0, 0, Vector2(0.753731, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_g0twb"]
+texture_mode = 1
+curve = SubResource("Curve_7h4v4")
+
+[sub_resource type="Gradient" id="Gradient_yb4cx"]
+offsets = PackedFloat32Array(0.00943396, 0.150943)
+colors = PackedColorArray(1, 1, 1, 1, 0.32, 0.32, 0.32, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0r8cq"]
+gradient = SubResource("Gradient_yb4cx")
+
+[sub_resource type="Curve" id="Curve_ig188"]
+min_value = 0.5
+max_value = 2.0
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 2), 2.1, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ohcll"]
+curve = SubResource("Curve_ig188")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_483xq"]
+particle_flag_align_y = true
+radial_velocity_max = 0.1
+gravity = Vector3(0, 0.3, 0)
+scale_curve = SubResource("CurveTexture_ohcll")
+color = Color(1, 0.501961, 0.25098, 1)
+color_ramp = SubResource("GradientTexture1D_0r8cq")
+alpha_curve = SubResource("CurveTexture_g0twb")
+sub_emitter_mode = 1
+sub_emitter_frequency = 4.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ki3gt"]
+material = ExtResource("1_5uhe3")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="SmokeParent" type="GPUParticles3D"]
+layers = 2
+lifetime = 2.0
+randomness = 0.25
+visibility_aabb = AABB(-2, -0.5, -2, 4, 2, 4)
+process_material = SubResource("ParticleProcessMaterial_483xq")
+draw_pass_1 = SubResource("BoxMesh_ki3gt")

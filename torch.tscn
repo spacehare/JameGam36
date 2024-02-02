@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi0mir7cmid0m"]
+
+[ext_resource type="Script" path="res://torch.gd" id="1_00iud"]
+[ext_resource type="PackedScene" uid="uid://bqyhclfeseo7v" path="res://particles_fire.tscn" id="1_0ox8q"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wnxgr"]
+radius = 0.34
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f20mm"]
+albedo_color = Color(0.501961, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_x2guf"]
+material = SubResource("StandardMaterial3D_f20mm")
+flip_faces = true
+radius = 0.1
+height = 0.2
+radial_segments = 8
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gnbf"]
+albedo_color = Color(0.501961, 0.25098, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r2xqt"]
+material = SubResource("StandardMaterial3D_4gnbf")
+top_radius = 0.1
+bottom_radius = 0.05
+height = 0.8
+radial_segments = 4
+rings = 1
+
+[node name="Torch" type="Node3D"]
+script = ExtResource("1_00iud")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_wnxgr")
+
+[node name="Ball" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90465, 0)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_x2guf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("CylinderMesh_r2xqt")
+
+[node name="SmokeParent" parent="." instance=ExtResource("1_0ox8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+emitting = false
+
+[node name="Light" type="OmniLight3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+visible = false
+light_color = Color(0.501961, 0, 0, 1)
+light_energy = 2.0
+light_size = 0.2
+shadow_enabled = true
+omni_range = 16.0
+omni_attenuation = 2.0
+
+[connection signal="area_entered" from="Area3D" to="." method="handle_candle"]

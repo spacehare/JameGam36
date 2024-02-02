@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcnpecpb8ajfv"]
+
+[ext_resource type="PackedScene" uid="uid://8yw8xintu6s2" path="res://raw/main.blend" id="1_brkb3"]
+
+[node name="Tiles1" type="Node3D"]
+
+[node name="main" parent="." instance=ExtResource("1_brkb3")]
