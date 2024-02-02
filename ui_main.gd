@@ -25,5 +25,8 @@ func menu_toggle():
 	get_tree().paused = not get_tree().paused
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("act_pause"):
 		menu_toggle()
+	# elif event.is_action_pressed("ui_cancel"):
+	# 	visible = true
+	# 	get_tree().paused = true
